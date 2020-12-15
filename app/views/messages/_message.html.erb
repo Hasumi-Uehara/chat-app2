@@ -1,0 +1,18 @@
+<div class="message">
+  <div class="upper-message">
+    <div class="message-user">
+      <!-- messagesテーブルのuser_idに紐付いているユーザー名を取得 -->
+      <%= message.user.name %>
+    </div>
+    <div class="message-date">
+      <!-- messagesテーブルのcreated_atカラムの情報を取得 -->
+      <%= l message.created_at %>
+    </div>
+  </div>
+  <div class="lower-message">
+    <div class="message-content">
+      <!-- messagesテーブルのcontentカラムの情報を取得 -->
+      <%= message.content %>
+    </div>
+  </div>
+</div>
