@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
     @message = Message.new
     @room = Room.find(params[:room_id])
     # 新規チャットを保存するために「空のレコード」と「ルームのid」を用意しなければならない。
+    @messages = @room.messages.includes(:user)
   end
 
   def create
@@ -14,6 +15,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to room_messages_path(@room)
     else
+      @messages = @room.messages.includes(:user)
       render :index
     end
   end
